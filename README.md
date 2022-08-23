@@ -147,6 +147,10 @@ echo "'$foo'"
 # doubled single quotes act as double quotes making variables expand
 echo ''$foo''
 # bar
+# foo=(a "b c" d)
+# join array with providied internal field seperator, only one character is supported.
+IFS=, ; echo "${foo[*]}"
+# a,b c, d
 ```
 ##### Get the length of variable
 ```bash
@@ -1130,14 +1134,14 @@ date +'%d-%b-%Y-%H:%M:%S'
 
 # Returns the current time with nanoseconds.
 date +"%T.%N"
-# 11:42:18.664217000  
+# 11:42:18.664217000
 
 # Get the seconds since epoch (Jan 1 1970) for a given date (e.g Mar 16 2021)
 date -d "Mar 16 2021" +%s
 # 1615852800
 # or
 date -d "Tue Mar 16 00:00:00 UTC 2021"  +%s
-# 1615852800  
+# 1615852800
 
 # Convert the number of seconds since epoch back to date
 date --date @1615852800
@@ -2159,35 +2163,35 @@ top|grep sublime_text
 ```
 
 ##### Some benchmarking tools for your server
-[aio-stress](https://openbenchmarking.org/test/pts/aio-stress) - AIO benchmark.  
-[bandwidth](https://zsmith.co/bandwidth.html) - memory bandwidth benchmark.  
-[bonnie++](https://www.coker.com.au/bonnie++/) - hard drive and file system performance benchmark.  
-[dbench](https://dbench.samba.org/) -  generate I/O workloads to either a filesystem or to a networked CIFS or NFS server.  
-[dnsperf](https://www.dnsperf.com/) - authorative and recursing DNS servers.  
-[filebench](https://github.com/filebench/filebench) - model based file system workload generator.  
-[fio](https://linux.die.net/man/1/fio) - I/O  benchmark.  
-[fs_mark](https://github.com/josefbacik/fs_mark) - synchronous/async file creation benchmark.  
-[httperf](https://github.com/httperf/httperf) - measure web server performance.  
-[interbench](https://github.com/ckolivas/interbench) - linux interactivity  benchmark.  
-[ioblazer](https://labs.vmware.com/flings/ioblazer) - multi-platform storage stack micro-benchmark.  
-[iozone](http://www.iozone.org/) - filesystem benchmark.  
-[iperf3](https://iperf.fr/iperf-download.php) - measure TCP/UDP/SCTP performance.  
-[kcbench](https://github.com/knurd/kcbench) - kernel compile benchmark, compiles a kernel and measures the time it takes.  
-[lmbench](http://www.bitmover.com/lmbench/) - Suite of simple, portable benchmarks.  
-[netperf](https://github.com/HewlettPackard/netperf) - measure network performance, test unidirectional throughput, and end-to-end latency.  
-[netpipe](https://linux.die.net/man/1/netpipe) - network protocol independent performance evaluator.  
-[nfsometer](http://wiki.linux-nfs.org/wiki/index.php/NFSometer) - NFS performance framework.  
-[nuttcp](https://www.nuttcp.net/Welcome%20Page.html) - measure network performance.  
-[phoronix-test-suite](https://www.phoronix-test-suite.com/) - comprehensive automated testing and benchmarking platform.  
-[seeker](https://github.com/fidlej/seeker) - portable disk seek benchmark.  
-[siege](https://github.com/JoeDog/siege) - http load tester and benchmark.  
-[sockperf](https://github.com/Mellanox/sockperf) - network benchmarking utility over socket API.  
-[spew](https://linux.die.net/man/1/spew) - measures I/O performance and/or generates I/O load.  
-[stress](https://people.seas.harvard.edu/~apw/stress/) - workload generator for POSIX systems.  
-[sysbench](https://github.com/akopytov/sysbench) - scriptable database and system performance benchmark.  
-[tiobench](https://github.com/mkuoppal/tiobench) - threaded IO benchmark.  
-[unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.  
-[wrk](https://github.com/wg/wrk) - HTTP benchmark.  
+[aio-stress](https://openbenchmarking.org/test/pts/aio-stress) - AIO benchmark.
+[bandwidth](https://zsmith.co/bandwidth.html) - memory bandwidth benchmark.
+[bonnie++](https://www.coker.com.au/bonnie++/) - hard drive and file system performance benchmark.
+[dbench](https://dbench.samba.org/) -  generate I/O workloads to either a filesystem or to a networked CIFS or NFS server.
+[dnsperf](https://www.dnsperf.com/) - authorative and recursing DNS servers.
+[filebench](https://github.com/filebench/filebench) - model based file system workload generator.
+[fio](https://linux.die.net/man/1/fio) - I/O  benchmark.
+[fs_mark](https://github.com/josefbacik/fs_mark) - synchronous/async file creation benchmark.
+[httperf](https://github.com/httperf/httperf) - measure web server performance.
+[interbench](https://github.com/ckolivas/interbench) - linux interactivity  benchmark.
+[ioblazer](https://labs.vmware.com/flings/ioblazer) - multi-platform storage stack micro-benchmark.
+[iozone](http://www.iozone.org/) - filesystem benchmark.
+[iperf3](https://iperf.fr/iperf-download.php) - measure TCP/UDP/SCTP performance.
+[kcbench](https://github.com/knurd/kcbench) - kernel compile benchmark, compiles a kernel and measures the time it takes.
+[lmbench](http://www.bitmover.com/lmbench/) - Suite of simple, portable benchmarks.
+[netperf](https://github.com/HewlettPackard/netperf) - measure network performance, test unidirectional throughput, and end-to-end latency.
+[netpipe](https://linux.die.net/man/1/netpipe) - network protocol independent performance evaluator.
+[nfsometer](http://wiki.linux-nfs.org/wiki/index.php/NFSometer) - NFS performance framework.
+[nuttcp](https://www.nuttcp.net/Welcome%20Page.html) - measure network performance.
+[phoronix-test-suite](https://www.phoronix-test-suite.com/) - comprehensive automated testing and benchmarking platform.
+[seeker](https://github.com/fidlej/seeker) - portable disk seek benchmark.
+[siege](https://github.com/JoeDog/siege) - http load tester and benchmark.
+[sockperf](https://github.com/Mellanox/sockperf) - network benchmarking utility over socket API.
+[spew](https://linux.die.net/man/1/spew) - measures I/O performance and/or generates I/O load.
+[stress](https://people.seas.harvard.edu/~apw/stress/) - workload generator for POSIX systems.
+[sysbench](https://github.com/akopytov/sysbench) - scriptable database and system performance benchmark.
+[tiobench](https://github.com/mkuoppal/tiobench) - threaded IO benchmark.
+[unixbench](https://github.com/kdlucas/byte-unixbench) - the original BYTE UNIX benchmark suite, provide a basic indicator of the performance of a Unix-like system.
+[wrk](https://github.com/wg/wrk) - HTTP benchmark.
 
 
 ##### Performance monitoring tool - sar
@@ -2942,7 +2946,7 @@ identify myimage.png
 [More examples](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html)
 ```bash
 complete -W "now tomorrow never" dothis
-# ~$ dothis  
+# ~$ dothis
 # never     now       tomorrow
 # press 'tab' again to auto-complete after typing 'n' or 't'
 ```
@@ -2950,13 +2954,13 @@ complete -W "now tomorrow never" dothis
 ```bash
 # print the current month, today will be highlighted.
 cal
-# October 2019      
-# Su Mo Tu We Th Fr Sa  
-#    1  2  3  4  5  
-# 6  7  8  9 10 11 12  
-# 13 14 15 16 17 18 19  
-# 20 21 22 23 24 25 26  
-# 27 28 29 30 31  
+# October 2019
+# Su Mo Tu We Th Fr Sa
+#    1  2  3  4  5
+# 6  7  8  9 10 11 12
+# 13 14 15 16 17 18 19
+# 20 21 22 23 24 25 26
+# 27 28 29 30 31
 
 # only display November
 cal -m 11
@@ -3312,14 +3316,14 @@ screen -r foo -X quit
 
 # Scroll:
 # Hit your screen prefix combination (C-a / control+A), then hit Escape.
-# Move up/down with the arrow keys (↑ and ↓).  
+# Move up/down with the arrow keys (↑ and ↓).
 
 # Redirect output of an already running process in Screen:
-# (C-a / control+A), then hit 'H'  
+# (C-a / control+A), then hit 'H'
 
 # Store screen output for Screen:
-# Ctrl+A, Shift+H  
-# You will then find a screen.log file under current directory.  
+# Ctrl+A, Shift+H
+# You will then find a screen.log file under current directory.
 ```
 
 ##### Using Tmux for multiple terminal sessions
