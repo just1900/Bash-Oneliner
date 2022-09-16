@@ -2785,12 +2785,14 @@ split -C 10 largefile.txt
 dd if=/dev/zero of=bigfile bs=1 count=1000000
 
 #2. Split the big file to 100000 10-bytes files
- split -b 10 -a 10 bigfile
+split -b 10 -a 10 bigfile
 ```
 
 ##### Rename all files (e.g. remove ABC from all .gz files)
 ```bash
 rename 's/ABC//' *.gz
+# alternatives without rename
+for f in `ls`; do mv -f "$f" `echo "$f" |sed 's/ABC//'`; done
 ```
 
 ##### Remove file extension (e.g remove .gz from filename.gz)
