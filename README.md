@@ -168,6 +168,21 @@ echo "${var:0:1}"
 echo ${var%%"${var#?}"}
 ```
 
+##### extract substring
+
+```bash
+# if string is a constant, using index
+b=${a:12:5}
+
+# remove prefix ending in "_"
+b=${a#*_}
+# substr starts with o11y
+b="o11y${a#*o11y}"
+# remove suffix starting with "_"
+b=${a%_*}
+```
+
+
 ##### Remove the first or last string from variable
 ```bash
 var="some string"
